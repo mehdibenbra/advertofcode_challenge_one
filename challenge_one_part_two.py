@@ -1,3 +1,5 @@
+import numpy as np
+
 mass_inputs=[112908,  61769,  65967,  51494,  99689, 114098, 135346,  59561,
          147324,  50465, 117491,  77845,  91959,  59847,  84013,  85763,
           62121,  58965,  89809,  97870,  77696,  70218, 118404,  83505,
@@ -17,7 +19,7 @@ def fuel_required(mass_module):
     return(required_fuel_amount)
 
 
-def looping(mass_module):
+def mass_fuel_module_level(mass_module):
     array=[]
     i=fuel_required(mass_module)
     while i>0:
@@ -28,10 +30,10 @@ def looping(mass_module):
 
 
 
-mass_fuel_required_per_module=[]
+mass_fuel_required_array=[]
 for l in mass_inputs:
-    mass_fuel_required_per_module.append(looping(l))
+    mass_fuel_required_array.append(mass_fuel_module_level(l))
     
 
-total_sum=sum(mass_fuel_required_per_module)
+total_sum=sum(mass_fuel_required_array)
 print('The total mass required is: ', total_sum)
